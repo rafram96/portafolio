@@ -1,9 +1,25 @@
-import React from 'react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import Hero from './sections/Hero'
+import PainPoints from './sections/PainPoints'
+import Services from './sections/Services'
+import Projects from './sections/Projects'
+import HowIWork from './sections/HowIWork'
+import TechStack from './sections/TechStack'
+import CTA from './sections/CTA'
 
-function HomePage() {
+export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <div>
+      <Navbar />
+      <Hero />
+      <PainPoints />
+      <Services />
+      <Projects />
+      <HowIWork />
+      <TechStack />
+      <CTA />
+      <Footer />
+    </div>
   )
 }
-
-export default HomePage
