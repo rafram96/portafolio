@@ -25,10 +25,10 @@ const projects = [
       ],
       fullSolution: [
         "Escaneo recursivo de carpetas del proyecto",
-        "Conversión silenciosa de DOCX/XLSX a PDF vía COM Automation",
+        "Conversión silenciosa de DOCX/XLSX a PDF",
         "Detección automática del tipo de documento — plano vs A4",
         "Escalado proporcional de firma según tamaño de página",
-        "Análisis del cuadrante inferior derecho para evitar tapar el cajetín",
+        "Análisis del cuadrante inferior derecho para evitar tapar el membrete",
         "Estampado vectorial manteniendo transparencia",
         "Reporte de trazabilidad con cada archivo procesado",
       ],
