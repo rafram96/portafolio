@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Hero from './sections/Hero'
 import PainPoints from './sections/PainPoints'
@@ -11,7 +10,6 @@ import CTA from './sections/CTA'
 export default function HomePage() {
   return (
     <div>
-      <Navbar />
       <Hero />
       <PainPoints />
       <Services />

@@ -27,18 +27,13 @@
   50% { transform: translateY(20px); }
 }
 
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.3); }
-}
-
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══ CAMPO ESTELAR ═══ */
-.stars {
+/* ═══ CAMPO ESTELAR (solo secciones debajo del hero) ═══ */
+.stars-bg {
   position: fixed;
   inset: 0;
   width: 100%;
@@ -59,7 +54,7 @@
   animation: twinkle-delay 5s ease-in-out infinite;
 }
 
-.stars::after {
+.stars-bg::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -73,8 +68,8 @@
   animation: twinkle 4s ease-in-out infinite 1.5s;
 }
 
-/* ═══ LUNA DECORATIVA ═══ */
-.moon {
+/* ═══ LUNA DECORATIVA (no aparece en hero) ═══ */
+.moon-bg {
   position: fixed;
   top: 80px;
   right: 100px;
@@ -91,7 +86,7 @@
   pointer-events: none;
 }
 
-.moon::before {
+.moon-bg::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -102,22 +97,6 @@
     radial-gradient(4px 4px at 75% 55%, rgba(0,0,0,0.08), transparent);
   border-radius: 50%;
 }
-
-/* ═══ ESTRELLAS INDIVIDUALES ═══ */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-.star:nth-child(2) { animation-delay: 0.5s; }
-.star:nth-child(3) { animation-delay: 1.2s; }
-.star:nth-child(4) { animation-delay: 0.8s; }
-.star:nth-child(5) { animation-delay: 1.7s; }
-.star:nth-child(6) { animation-delay: 2.1s; }
 
 /* ═══ CONTENIDO SOBRE EL FONDO ═══ */
 .content-wrapper {
@@ -152,7 +131,7 @@
 
 /* ═══ RESPONSIVE LUNA ═══ */
 @media (max-width: 768px) {
-  .moon {
+  .moon-bg {
     width: 70px;
     height: 70px;
     top: 40px;

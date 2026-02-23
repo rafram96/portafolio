@@ -1,58 +1,88 @@
+import Image from "next/image"
+import Navbar from "@/components/Navbar"
+
 export default function Hero() {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Estrellas individuales decorativas */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="star" style={{ top: "15%", left: "10%" }}></div>
-        <div className="star" style={{ top: "25%", left: "80%" }}></div>
-        <div className="star" style={{ top: "45%", left: "5%" }}></div>
-        <div className="star" style={{ top: "60%", left: "90%" }}></div>
-        <div className="star" style={{ top: "70%", left: "30%" }}></div>
-        <div className="star" style={{ top: "35%", left: "55%" }}></div>
-      </div>
+    <section id="inicio" className="relative h-screen w-full overflow-hidden">
+      {/* Imagen de fondo */}
+      <Image
+        src="/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+        aria-hidden="true"
+      />
 
-      <div className="max-w-6xl mx-auto px-4 py-20 w-full">
-        {/* Disponibilidad */}
-        <div className="mb-10 inline-flex items-center gap-3 bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-full px-5 py-2.5">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
-          </span>
-          <span className="text-slate-400 text-sm">Disponible para proyectos</span>
-        </div>
+      {/* Overlay gradiente */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.7) 85%, #020617 100%)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Saludo */}
-        <p className="text-indigo-400 text-lg mb-4 font-medium">Hola, soy [Tu Nombre]</p>
+      {/* Navbar transparente */}
+      <Navbar />
 
-        {/* Título */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-100 leading-tight tracking-tight mb-6 max-w-4xl">
-          Modernizo negocios que todavía{" "}
-          <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            trabajan a la antigua.
-          </span>
+      {/* Contenido — abajo a la izquierda */}
+      <div className="absolute bottom-16 left-6 sm:left-10 md:left-16 max-w-xl z-10 px-2">
+        {/* Eyebrow */}
+        <p
+          className="text-xs sm:text-sm uppercase tracking-[0.1em] mb-4"
+          style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem" }}
+        >
+          Desarrollador &amp; Automatizador
+        </p>
+
+        {/* H1 */}
+        <h1
+          className="font-bold text-white mb-4"
+          style={{
+            fontSize: "clamp(2.5rem, 5vw, 4rem)",
+            lineHeight: 1.1,
+          }}
+        >
+          Modernizo negocios que trabajan a la antigua.
         </h1>
 
         {/* Subtítulo */}
-        <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-12">
-          Construyo automatizaciones, apps web y herramientas con IA para pymes
-          y empresas que quieren dejar de perder tiempo en procesos manuales.
+        <p
+          className="mb-8 max-w-[420px]"
+          style={{
+            color: "rgba(255,255,255,0.75)",
+            fontSize: "1rem",
+            lineHeight: 1.6,
+          }}
+        >
+          Automatización, apps web e IA para empresas que quieren dejar de perder tiempo.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex items-center gap-4 mb-5">
           <a
             href="#proyectos"
-            className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-8 py-3.5 rounded-lg transition text-center"
+            className="bg-white text-black font-medium px-6 py-2.5 rounded hover:bg-gray-200 transition text-sm"
           >
-            Ver mis proyectos
+            Ver proyectos →
           </a>
           <a
             href="#contacto"
-            className="border border-indigo-400/40 text-indigo-300 hover:bg-indigo-500/10 font-semibold px-8 py-3.5 rounded-lg transition text-center"
+            className="text-white text-sm font-normal hover:underline underline-offset-4 transition"
           >
             Hablemos
           </a>
         </div>
+
+        {/* Detalle enterprise */}
+        <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+          ¿Necesitas algo enterprise?{" "}
+          <a href="#contacto" className="hover:underline underline-offset-2">
+            Conversemos →
+          </a>
+        </p>
       </div>
     </section>
   )

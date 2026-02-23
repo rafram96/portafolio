@@ -28,8 +28,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="stars" aria-hidden="true"></div>
-        <div className="moon" aria-hidden="true"></div>
+        <div className="stars-bg" aria-hidden="true"></div>
+        <div className="moon-bg" aria-hidden="true"></div>
         <div className="content-wrapper">
           {children}
         </div>
