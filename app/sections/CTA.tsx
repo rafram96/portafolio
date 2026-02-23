@@ -12,15 +12,18 @@ export default function CTA() {
 
       <div className="relative max-w-3xl mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-slate-100 mb-6">
-          ¿Listo para dejar de perder tiempo?
+          Hablemos de tu próximo proyecto
         </h2>
         <p className="text-slate-400 text-lg mb-12 max-w-xl mx-auto leading-relaxed">
-          Cuéntame qué problema tienes. La primera conversación es gratis y sin compromiso.
+          Trabajo con empresas que buscan optimizar sus procesos 
+          y con personas que quieren llevar una idea al mundo digital.
+          <br /><br />
+          La primera consulta es sin costo y sin compromiso.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <a
-            href="https://wa.me/51XXXXXXXXX"
+            href="https://wa.me/51957673645"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-10 py-4 rounded-lg transition text-center text-lg"
@@ -28,7 +31,7 @@ export default function CTA() {
             Escríbeme por WhatsApp
           </a>
           <a
-            href="mailto:tu@email.com"
+            href="mailto:holbiru@gmail.com"
             className="border border-indigo-400/40 text-indigo-300 hover:bg-indigo-500/10 font-semibold px-10 py-4 rounded-lg transition text-center text-lg"
           >
             Envíame un email
@@ -37,7 +40,7 @@ export default function CTA() {
 
         <div className="flex flex-col items-center gap-2">
           <p className="text-slate-500 text-sm">
-            📧 tu@email.com
+            📧 holbiru@gmail.com
           </p>
           <div className="flex items-center gap-2 text-slate-500 text-sm">
             <span className="relative flex h-2 w-2">

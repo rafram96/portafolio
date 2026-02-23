@@ -17,9 +17,9 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="#inicio"
-          className="text-white text-lg font-light tracking-wide"
+          className="text-white text-xl font-medium tracking-wide"
         >
-          [Rafael Ramos]
+          Rafael Ramos
         </a>
 
         {/* Desktop links */}
@@ -28,7 +28,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-white/80 hover:text-white transition text-sm font-normal tracking-[0.05em]"
+                className="text-white/80 hover:text-white transition text-base font-medium tracking-[0.05em]"
               >
                 {link.label}
               </a>
@@ -61,7 +61,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-white/80 hover:text-white transition text-sm tracking-[0.05em] block py-1"
+                  className="text-white/80 hover:text-white transition text-base font-medium tracking-[0.05em] block py-1"
                 >
                   {link.label}
                 </a>

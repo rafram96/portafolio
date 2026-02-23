@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LenisProvider from "@/components/LenisProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portfolio — Desarrollo Web & Automatización para Negocios",
   description:
-    "Ayudo a negocios tradicionales a trabajar más inteligente — automatizando lo repetitivo, digitalizando lo manual y construyendo herramientas a medida.",
+    "Especialista en automatización de procesos, desarrollo web y soluciones con IA. Trabajo con pymes y emprendedores que quieren modernizarse sin depender de grandes agencias. Mi enfoque es práctico: soluciones concretas para problemas reales, sin tecnicismos innecesarios. Si buscas optimizar tu negocio y llevarlo al mundo digital, estás en el lugar correcto.",
 };
 
 export default function RootLayout({
@@ -31,7 +32,9 @@ export default function RootLayout({
         <div className="stars-bg" aria-hidden="true"></div>
         <div className="moon-bg" aria-hidden="true"></div>
         <div className="content-wrapper">
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
         </div>
       </body>
     </html>

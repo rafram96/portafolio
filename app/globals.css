@@ -2,7 +2,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
   body {
     background-color: #020617;
@@ -30,6 +30,31 @@
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1.1) translate(1%, 0.5%);
+  }
+  to {
+    transform: scale(1) translate(0%, 0%);
+  }
+}
+
+/* ═══ HERO BACKGROUND SLOTS ═══ */
+.hero-bg-slot {
+  position: absolute;
+  inset: 0;
+  filter: brightness(0.85) blur(2px);
+  transition:
+    opacity 2.8s cubic-bezier(0.4, 0, 0.15, 1),
+    filter 2.8s cubic-bezier(0.4, 0, 0.15, 1);
+  will-change: opacity, filter;
+}
+
+.hero-bg-active {
+  filter: brightness(1) blur(0px);
+  animation: ken-burns 12s ease-out forwards;
 }
 
 /* ═══ CAMPO ESTELAR (solo secciones debajo del hero) ═══ */
