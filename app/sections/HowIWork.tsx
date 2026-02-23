@@ -1,32 +1,33 @@
-export default function HowIWork() {
-  const steps = [
-    {
-      number: "01",
-      icon: "💬",
-      title: "Diagnóstico",
-      //description: "Entiendo tu problema real, no asumo nada.",
-      description: "Escucho tus necesidades y analizo tu proceso actual para identificar el problema real"
-    },
-    {
-      number: "02",
-      icon: "📋",
-      title: "Estrategia",
-      description: "Presento una propuesta con inversión clara y plazos definidos.",
-    },
-    {
-      number: "03",
-      icon: "🔨",
-      title: "Desarrollo",
-      description: "Construyo la solución por etapas, entregando avances constantes para asegurar que vamos por buen camino.",
-    },
-    {
-      number: "04",
-      icon: "🚀",
-      title: "Puesta en marcha",
-      description: "Lanzamos el proyecto con acompañamiento y capacitación para que tú y tu equipo tengan el control total.",
-    },
-  ]
+import { Search, FileText, Hammer, Rocket } from "lucide-react"
 
+const steps = [
+  {
+    number: "01",
+    icon: Search,
+    title: "Diagnóstico",
+    description: "Escucho tus necesidades y analizo tu proceso actual para identificar el problema real.",
+  },
+  {
+    number: "02",
+    icon: FileText,
+    title: "Estrategia",
+    description: "Presento una propuesta con inversión clara y plazos definidos.",
+  },
+  {
+    number: "03",
+    icon: Hammer,
+    title: "Desarrollo",
+    description: "Construyo la solución por etapas, entregando avances constantes para asegurar que vamos por buen camino.",
+  },
+  {
+    number: "04",
+    icon: Rocket,
+    title: "Puesta en marcha",
+    description: "Lanzamos el proyecto con acompañamiento y capacitación para que tú y tu equipo tengan el control total.",
+  },
+]
+
+export default function HowIWork() {
   return (
     <section id="proceso" className="py-28" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(15,23,42,0.35) 18%, rgba(15,23,42,0.35) 82%, transparent 100%)" }}>
       <div className="max-w-6xl mx-auto px-4">
@@ -45,10 +46,9 @@ export default function HowIWork() {
           ></div>
 
           {steps.map((step, i) => (
-            <div key={i} className="text-center relative">
-              {/* Número + ícono */}
-              <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-900 border border-indigo-500/20 mb-6">
-                <span className="text-2xl">{step.icon}</span>
+            <div key={i} className="text-center relative group">
+              <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-900 border border-indigo-500/20 mb-6 group-hover:border-indigo-500/60 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition">
+                <step.icon className="w-7 h-7 text-indigo-400" strokeWidth={1.5} />
               </div>
               <p className="text-indigo-400 text-xs font-bold tracking-widest uppercase mb-2">
                 Paso {step.number}

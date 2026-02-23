@@ -1,39 +1,33 @@
 export default function Projects() {
   const projects = [
     {
-      badge: "🔧 Automatización",
+      badge: "Automatización",
       badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
       title: "Alpamayo Engine — Firma Masiva de Expedientes Técnicos",
-      problem:
-        "Un equipo de arquitectos e ingenieros tardaba días en firmar manualmente cientos de planos y documentos técnicos para entregar un expediente completo. Cada archivo había que abrirlo, insertar la firma, guardar y cerrar — 300 veces.",
-      solution:
-        "Desarrollé una aplicación de escritorio en Python que escanea la carpeta del proyecto, convierte todos los archivos Word/Excel a PDF, detecta automáticamente si es un plano técnico o un documento A4, y estampa la firma digital de cada especialista en la ubicación correcta — sin tapar el contenido.",
-      result:
-        "Lo que antes tomaba 8 horas de trabajo manual ahora toma 20 minutos sin intervención humana. Procesa 500+ archivos por ejecución.",
+      metric: "8h → 20min",
+      result: "Lo que antes tomaba 8 horas de trabajo manual ahora toma 20 minutos sin intervención humana. Procesa 500+ archivos por ejecución.",
+      problem: "Un equipo tardaba días firmando manualmente cientos de planos y documentos técnicos — cada archivo había que abrirlo, firmar y guardar, 300 veces.",
+      solution: "App de escritorio en Python que convierte todos los archivos a PDF, detecta si es plano o documento A4, y estampa la firma en la ubicación correcta automáticamente.",
       stack: ["Python", "PyQt", "PDF Automation", "COM Automation", "SQLite"],
     },
     {
-      badge: "🌐 Web & Ecommerce",
+      badge: "Web & Ecommerce",
       badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
       title: "Tienda Digital — Ecommerce Serverless para Negocio Local",
-      problem:
-        "Una tienda de artesanías en Lima vendía solo presencialmente. Quería vender online pero no podía pagar servidores mensuales ni plataformas costosas.",
-      solution:
-        "Construí un ecommerce ligero con Next.js desplegado en Vercel, con catálogo dinámico, carrito de compras y pasarela de pago integrada — sin costo de servidor mensual.",
-      result:
-        "En el primer mes online generó 40% más de ventas sin inversión recurrente en infraestructura.",
+      metric: "+40% ventas",
+      result: "En el primer mes online generó 40% más de ventas sin inversión recurrente en infraestructura.",
+      problem: "Una tienda de artesanías en Lima vendía solo presencialmente y no podía costear servidores ni plataformas mensuales.",
+      solution: "Ecommerce ligero con Next.js en Vercel — catálogo dinámico, carrito y pasarela de pago integrada, costo de servidor cero.",
       stack: ["Next.js", "Vercel", "Stripe", "Tailwind CSS"],
     },
     {
-      badge: "🤖 IA",
+      badge: "IA",
       badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
       title: "Asistente IA — Atención al Cliente Automatizada 24/7",
-      problem:
-        "Una notaría recibía cientos de consultas repetitivas por WhatsApp y email. El equipo perdía horas respondiendo las mismas preguntas sobre requisitos y horarios.",
-      solution:
-        "Implementé un chatbot con LLM local (Ollama) conectado a WhatsApp vía n8n, entrenado con los documentos y procedimientos de la notaría para dar respuestas precisas automáticamente.",
-      result:
-        "Redujo en 70% las consultas manuales. El equipo ahora solo atiende casos complejos que realmente necesitan atención humana.",
+      metric: "−70% consultas",
+      result: "Redujo en 70% las consultas manuales. El equipo ahora solo atiende casos complejos que realmente necesitan atención humana.",
+      problem: "Una notaría recibía cientos de consultas repetitivas por WhatsApp y email — el equipo perdía horas respondiendo siempre lo mismo.",
+      solution: "Chatbot con LLM local (Ollama) conectado a WhatsApp vía n8n, entrenado con documentos y procedimientos reales de la notaría.",
       stack: ["Ollama", "n8n", "Python", "FastAPI", "WhatsApp API"],
     },
   ]
@@ -51,54 +45,44 @@ export default function Projects() {
         <div className="flex flex-col gap-8">
           {projects.map((project, i) => (
             <div key={i} className="card p-8 md:p-10">
-              {/* Badge */}
-              <span
-                className={`inline-block text-xs font-semibold px-3 py-1 rounded border mb-5 ${project.badgeColor}`}
-              >
+              {/* Badge + título */}
+              <span className={`inline-block text-xs font-semibold px-3 py-1 rounded border mb-4 ${project.badgeColor}`}>
                 {project.badge}
               </span>
-
-              <h3 className="text-2xl font-bold text-slate-100 mb-6">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-6">
                 {project.title}
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                {/* Problema */}
+              {/* Resultado destacado */}
+              <div className="relative rounded-xl bg-indigo-950/40 border border-indigo-500/20 px-6 py-5 mb-4 overflow-hidden">
+                <span
+                  aria-hidden="true"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-5xl md:text-7xl font-black text-indigo-500/10 select-none pointer-events-none leading-none whitespace-nowrap"
+                >
+                  {project.metric}
+                </span>
+                <p className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-1">Resultado</p>
+                <p className="text-indigo-200 text-sm md:text-base leading-relaxed font-medium relative z-10">
+                  {project.result}
+                </p>
+              </div>
+
+              {/* Problema + Solución */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                    El problema
-                  </p>
-                  <p className="text-slate-400 text-sm leading-relaxed italic">
-                    {project.problem}
-                  </p>
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">El problema</p>
+                  <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
                 </div>
-                {/* Solución */}
                 <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                    La solución
-                  </p>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {project.solution}
-                  </p>
-                </div>
-                {/* Resultado */}
-                <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                    El resultado
-                  </p>
-                  <p className="text-indigo-300 text-sm leading-relaxed font-medium">
-                    {project.result}
-                  </p>
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">La solución</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">{project.solution}</p>
                 </div>
               </div>
 
               {/* Stack */}
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((tech, j) => (
-                  <span
-                    key={j}
-                    className="bg-slate-800 text-slate-300 font-mono text-xs px-3 py-1 rounded border border-indigo-500/10"
-                  >
+                  <span key={j} className="bg-slate-800 text-slate-300 font-mono text-xs px-3 py-1 rounded border border-indigo-500/10">
                     {tech}
                   </span>
                 ))}
