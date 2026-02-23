@@ -3,26 +3,27 @@ export default function HowIWork() {
     {
       number: "01",
       icon: "💬",
-      title: "Conversamos",
-      description: "Entiendo tu problema real, no asumo nada.",
+      title: "Diagnóstico",
+      //description: "Entiendo tu problema real, no asumo nada.",
+      description: "Escucho tus necesidades y analizo tu proceso actual para identificar el problema real"
     },
     {
       number: "02",
       icon: "📋",
-      title: "Te propongo",
-      description: "Presupuesto claro, plazos reales, sin letra chica.",
+      title: "Estrategia",
+      description: "Presento una propuesta con inversión clara y plazos definidos.",
     },
     {
       number: "03",
       icon: "🔨",
-      title: "Construyo",
-      description: "Trabajo en iteraciones, te muestro avances.",
+      title: "Desarrollo",
+      description: "Construyo la solución por etapas, entregando avances constantes para asegurar que vamos por buen camino.",
     },
     {
       number: "04",
       icon: "🚀",
-      title: "Entregamos",
-      description: "Capacitación incluida, no te dejo solo.",
+      title: "Puesta en marcha",
+      description: "Lanzamos el proyecto con acompañamiento y capacitación para que tú y tu equipo tengan el control total.",
     },
   ]
 
@@ -39,7 +40,7 @@ export default function HowIWork() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
           {/* Línea conectora (desktop) */}
           <div
-            className="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"
+            className="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-px bg-linear-to-r from-transparent via-indigo-500/30 to-transparent"
             aria-hidden="true"
           ></div>
 

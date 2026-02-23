@@ -90,7 +90,7 @@ export default function Hero() {
           className="text-xs sm:text-sm uppercase tracking-widest mb-4"
           style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem" }}
         >
-          Desarrollador &amp; Automatizador
+          Computer Science Student @ UTEC | Software Engineer
         </p>
 
         {/* H1 */}
@@ -113,7 +113,9 @@ export default function Hero() {
             lineHeight: 1.6,
           }}
         >
-          Trabajo con pymes y emprendedores que quieren modernizarse sin depender de grandes agencias. Mi enfoque es práctico: soluciones concretas para problemas reales, sin tecnicismos innecesarios. Si buscas optimizar tu negocio y llevarlo al mundo digital, estás en el lugar correcto.
+          Acompaño a empresas y emprendedores en su proceso de modernización digital. 
+          Mi enfoque es práctico: soluciones concretas para problemas reales. 
+          Si buscas optimizar tu negocio y llevarlo al mundo digital, estás en el lugar correcto.
         </p>
 
         {/* CTAs */}
