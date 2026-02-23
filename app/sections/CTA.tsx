@@ -6,7 +6,8 @@ export default function CTA() {
     >
       {/* Gradiente de fondo */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-indigo-950/20 via-indigo-950/40 to-[#020617] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(49,46,129,0.15) 25%, rgba(49,46,129,0.35) 60%, #020617 100%)" }}
         aria-hidden="true"
       ></div>
 

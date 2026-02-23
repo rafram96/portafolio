@@ -31,6 +31,7 @@ export default function RootLayout({
       >
         <div className="stars-bg" aria-hidden="true"></div>
         <div className="moon-bg" aria-hidden="true"></div>
+        <div className="space-cat" aria-hidden="true">🐱</div>
         <div className="content-wrapper">
           <LenisProvider>
             {children}

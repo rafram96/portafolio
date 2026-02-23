@@ -198,3 +198,50 @@
     right: 30px;
   }
 }
+
+/* ═══ GATITO ASTRONAUTA ═══ */
+.space-cat {
+  position: fixed;
+  top: 56px;
+  right: 148px;
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(
+    circle at 38% 32%,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(180, 200, 255, 0.12) 55%,
+    transparent 100%
+  );
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  z-index: 2;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 0.4s;
+  filter: drop-shadow(0 0 8px rgba(180, 210, 255, 0.35));
+}
+
+.space-cat::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 8px;
+  background: rgba(200, 215, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+
+@media (max-width: 768px) {
+  .space-cat {
+    display: none;
+  }
+}

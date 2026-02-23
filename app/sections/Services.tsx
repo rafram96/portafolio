@@ -43,7 +43,7 @@ export default function Services() {
   ]
 
   return (
-    <section id="servicios" className="py-28 bg-slate-900/30">
+    <section id="servicios" className="py-28" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(15,23,42,0.35) 18%, rgba(15,23,42,0.35) 82%, transparent 100%)" }}>
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-semibold text-slate-100 text-center mb-4">
           Qué puedo hacer por tu negocio
