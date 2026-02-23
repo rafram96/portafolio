@@ -4,11 +4,11 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-400 text-sm">
-            Hecho con ☕ en Lima, Perú
+            Hecho con cariño en Lima, Perú
           </p>
           <div className="flex gap-6">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/rafael-ramos-huaman%C3%AD-a452a638b/"
               className="text-slate-500 hover:text-indigo-400 transition text-sm"
               target="_blank"
               rel="noopener noreferrer"
@@ -16,7 +16,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href="#"
+              href="https://github.com/rafram96"
               className="text-slate-500 hover:text-indigo-400 transition text-sm"
               target="_blank"
               rel="noopener noreferrer"

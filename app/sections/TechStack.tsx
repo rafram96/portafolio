@@ -7,7 +7,7 @@ export default function TechStack() {
     { name: "SQL", desc: "Bases de datos relacionales" },
     { name: "Docker", desc: "Contenedores y despliegue" },
     { name: "AWS", desc: "Infraestructura en la nube" },
-    { name: "Ollama / LLMs", desc: "IA local y modelos de lenguaje" },
+    { name: "LLMs", desc: "IA local y modelos de lenguaje" },
     { name: "n8n", desc: "Automatización de flujos" },
   ]
 

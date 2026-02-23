@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio — Desarrollo Web & Automatización para Negocios",
+  title: "Rafael Ramos - Portfolio",
   description:
     "Especialista en automatización de procesos, desarrollo web y soluciones con IA. Trabajo con pymes y emprendedores que quieren modernizarse sin depender de grandes agencias. Mi enfoque es práctico: soluciones concretas para problemas reales, sin tecnicismos innecesarios. Si buscas optimizar tu negocio y llevarlo al mundo digital, estás en el lugar correcto.",
 };
