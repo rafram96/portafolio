@@ -41,6 +41,32 @@
   }
 }
 
+@keyframes ken-burns-mobile {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ═══ HERO PARALLAX CONTAINER ═══ */
+.hero-parallax {
+  position: absolute;
+  inset: 0;
+  top: -15%;
+  height: 130%;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .hero-parallax {
+    top: 0;
+    height: 100%;
+    transform: none !important;
+  }
+}
+
 /* ═══ HERO BACKGROUND SLOTS ═══ */
 .hero-bg-slot {
   position: absolute;
@@ -55,6 +81,15 @@
 .hero-bg-active {
   filter: brightness(1) blur(0px);
   animation: ken-burns 12s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-active {
+    animation: ken-burns-mobile 12s ease-out forwards;
+  }
+  .hero-bg-slot {
+    filter: brightness(0.9) blur(0px);
+  }
 }
 
 /* ═══ CAMPO ESTELAR (solo secciones debajo del hero) ═══ */

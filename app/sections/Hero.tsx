@@ -48,7 +48,7 @@ export default function Hero() {
   return (
     <section id="inicio" className="relative h-screen w-full overflow-hidden">
       {/* Contenedor parallax */}
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform" style={{ top: "-15%", height: "130%" }}>
+      <div ref={parallaxRef} className="hero-parallax">
         {BACKGROUNDS.map((src, index) => (
           <div
             key={src}
