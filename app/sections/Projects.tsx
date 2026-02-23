@@ -1,36 +1,49 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { X, Search } from "lucide-react"
+
+const projects = [
+  {
+    badge: "Automatización",
+    badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    title: "Alpamayo Engine — Visado Inteligente de Expedientes Técnicos",
+    metric: "8h → 20min",
+    problem: "Un equipo tardaba días firmando manualmente cientos de planos y documentos técnicos — cada archivo había que abrirlo, escalar la firma, colocarla sin tapar el cajetín, guardar y cerrar. 500 veces.",
+    solution: "App de escritorio en Python que convierte todos los archivos a PDF, detecta si es plano o documento A4, y estampa la firma en la ubicación correcta automáticamente.",
+    result: "Elimina riesgo contractual por firmas mal posicionadas. Reduce el cierre de expedientes de 3 días a 30 minutos.",
+    stack: ["Python", "PyQt", "PyMuPDF", "COM Automation", "Pillow", "SQLite"],
+    detail: {
+      features: [
+        "Backup automático del expediente original antes de procesar",
+        "Detección de geometría PDF + orientación del membrete",
+        "Algoritmo de búsqueda de espacio blanco (collision avoidance)",
+        "Escalado vectorial dinámico según formato (A0 → +300%)",
+        "Multi-firma por documento (Gerente + Jefe + Especialista)",
+        "Modo batch con lazy loading para archivos >1GB",
+        "Logs de auditoría: qué se firmó, cuándo, con qué firma",
+      ],
+      fullSolution: [
+        "Escaneo recursivo de carpetas del proyecto",
+        "Conversión silenciosa de DOCX/XLSX a PDF vía COM Automation",
+        "Detección automática del tipo de documento — plano vs A4",
+        "Escalado proporcional de firma según tamaño de página",
+        "Análisis del cuadrante inferior derecho para evitar tapar el cajetín",
+        "Estampado vectorial manteniendo transparencia",
+        "Reporte de trazabilidad con cada archivo procesado",
+      ],
+      businessValue: "Elimina riesgo contractual por firmas mal posicionadas. Reduce tiempo de cierre de expedientes de 3 días a 30 minutos. Garantiza que 500+ documentos queden correctamente visados sin supervisión.",
+    },
+  },
+]
+
 export default function Projects() {
-  const projects = [
-    {
-      badge: "Automatización",
-      badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-      title: "Alpamayo Engine — Firma Masiva de Expedientes Técnicos",
-      metric: "8h → 20min",
-      result: "Lo que antes tomaba 8 horas de trabajo manual ahora toma 20 minutos sin intervención humana. Procesa 500+ archivos por ejecución.",
-      problem: "Un equipo tardaba días firmando manualmente cientos de planos y documentos técnicos — cada archivo había que abrirlo, firmar y guardar, 300 veces.",
-      solution: "App de escritorio en Python que convierte todos los archivos a PDF, detecta si es plano o documento A4, y estampa la firma en la ubicación correcta automáticamente.",
-      stack: ["Python", "PyQt", "PDF Automation", "COM Automation", "SQLite"],
-    },
-    {
-      badge: "Web & Ecommerce",
-      badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
-      title: "Tienda Digital — Ecommerce Serverless para Negocio Local",
-      metric: "+40% ventas",
-      result: "En el primer mes online generó 40% más de ventas sin inversión recurrente en infraestructura.",
-      problem: "Una tienda de artesanías en Lima vendía solo presencialmente y no podía costear servidores ni plataformas mensuales.",
-      solution: "Ecommerce ligero con Next.js en Vercel — catálogo dinámico, carrito y pasarela de pago integrada, costo de servidor cero.",
-      stack: ["Next.js", "Vercel", "Stripe", "Tailwind CSS"],
-    },
-    {
-      badge: "IA",
-      badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-      title: "Asistente IA — Atención al Cliente Automatizada 24/7",
-      metric: "−70% consultas",
-      result: "Redujo en 70% las consultas manuales. El equipo ahora solo atiende casos complejos que realmente necesitan atención humana.",
-      problem: "Una notaría recibía cientos de consultas repetitivas por WhatsApp y email — el equipo perdía horas respondiendo siempre lo mismo.",
-      solution: "Chatbot con LLM local (Ollama) conectado a WhatsApp vía n8n, entrenado con documentos y procedimientos reales de la notaría.",
-      stack: ["Ollama", "n8n", "Python", "FastAPI", "WhatsApp API"],
-    },
-  ]
+  const [selected, setSelected] = useState<typeof projects[0] | null>(null)
+
+  useEffect(() => {
+    document.body.style.overflow = selected ? "hidden" : ""
+    return () => { document.body.style.overflow = "" }
+  }, [selected])
 
   return (
     <section id="proyectos" className="py-28">
@@ -45,37 +58,54 @@ export default function Projects() {
         <div className="flex flex-col gap-8">
           {projects.map((project, i) => (
             <div key={i} className="card p-8 md:p-10">
-              {/* Badge + título */}
-              <span className={`inline-block text-xs font-semibold px-3 py-1 rounded border mb-4 ${project.badgeColor}`}>
-                {project.badge}
-              </span>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-6">
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4 mb-5">
+                <span className={`inline-block text-xs font-semibold px-3 py-1 rounded border ${project.badgeColor}`}>
+                  {project.badge}
+                </span>
+                <button
+                  onClick={() => setSelected(project)}
+                  className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition cursor-pointer"
+                >
+                  <Search className="w-3.5 h-3.5" />
+                  Ver detalles
+                </button>
+              </div>
+
+              <h3 className="text-2xl font-bold text-slate-100 mb-4">
                 {project.title}
               </h3>
 
               {/* Resultado destacado */}
-              <div className="relative rounded-xl bg-indigo-950/40 border border-indigo-500/20 px-6 py-5 mb-4 overflow-hidden">
-                <span
-                  aria-hidden="true"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-5xl md:text-7xl font-black text-indigo-500/10 select-none pointer-events-none leading-none whitespace-nowrap"
-                >
-                  {project.metric}
-                </span>
-                <p className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-1">Resultado</p>
-                <p className="text-indigo-200 text-sm md:text-base leading-relaxed font-medium relative z-10">
+              <div className="relative bg-indigo-950/40 border border-indigo-500/20 rounded-xl p-5 mb-6 overflow-hidden">
+                <p className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+                  Resultado
+                </p>
+                <p className="text-slate-200 text-sm leading-relaxed relative z-10">
                   {project.result}
                 </p>
+                <span className="absolute right-4 bottom-1 text-4xl font-black text-indigo-400/15 select-none leading-none">
+                  {project.metric.split("|")[0].trim()}
+                </span>
               </div>
 
-              {/* Problema + Solución */}
+              {/* Problema / Solución */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">El problema</p>
-                  <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    El problema
+                  </p>
+                  <p className="text-slate-400 text-sm leading-relaxed italic">
+                    {project.problem}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">La solución</p>
-                  <p className="text-slate-300 text-sm leading-relaxed">{project.solution}</p>
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    La solución
+                  </p>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    {project.solution}
+                  </p>
                 </div>
               </div>
 
@@ -91,6 +121,91 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selected && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setSelected(null)}
+        >
+          <div
+            className="relative bg-slate-900 border border-indigo-500/20 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Cerrar */}
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-200 transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Badge + Título */}
+            <span className={`inline-block text-xs font-semibold px-3 py-1 rounded border mb-4 ${selected.badgeColor}`}>
+              {selected.badge}
+            </span>
+            <h3 className="text-xl font-bold text-slate-100 mb-6">
+              {selected.title}
+            </h3>
+
+            {/* Solución completa */}
+            <div className="mb-6">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+                Cómo funciona
+              </p>
+              <ul className="flex flex-col gap-2">
+                {selected.detail.fullSolution.map((step, i) => (
+                  <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                    <span className="text-indigo-400 font-mono text-xs mt-0.5 shrink-0">
+                      0{i + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Features */}
+            <div className="mb-6">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+                Características técnicas
+              </p>
+              <ul className="flex flex-col gap-2">
+                {selected.detail.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                    <span className="text-indigo-400 mt-0.5 shrink-0">→</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Business value */}
+            <div className="bg-indigo-950/40 border border-indigo-500/20 rounded-xl p-4 mb-6">
+              <p className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+                Valor de negocio
+              </p>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                {selected.detail.businessValue}
+              </p>
+            </div>
+
+            {/* Stack */}
+            <div>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+                Stack
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {selected.stack.map((tech, j) => (
+                  <span key={j} className="bg-slate-800 text-slate-300 font-mono text-xs px-3 py-1 rounded border border-indigo-500/10">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
